@@ -1,3 +1,5 @@
+/// <reference types="histoire" />
+
 import { resolve } from 'path';
 import vue from '@vitejs/plugin-vue';
 import { defineConfig } from 'vite';
@@ -7,7 +9,7 @@ import dts from 'vite-plugin-dts';
 export default defineConfig({
 	build: {
 		lib: {
-			entry: resolve(__dirname, 'src/components/index.ts'),
+			entry: resolve(__dirname, 'src/index.ts'),
 			name: 'vtui',
 			fileName: (format) => `vtui.${format}.ts`,
 		},
@@ -28,4 +30,8 @@ export default defineConfig({
 			'@': resolve(__dirname, 'src'),
 		},
 	},
+	histoire: {
+		setupFile: resolve(__dirname, 'src/histoire.setup.ts'),
+	},
+
 });
