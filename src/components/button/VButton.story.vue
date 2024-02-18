@@ -2,15 +2,13 @@
 import VButton from './VButton.vue';
 import {
 	ColorValues,
-	type Colors,
-	type Sizes
 } from '@/utils/variables';
 </script>
 
 <template>
 	<Story title="VButtons">
 		<Variant title="Defaults">
-			<VButton className="m-1" isDisabled>
+			<VButton className="m-1" is-disabled>
 				Disabled
 			</VButton>
 			<VButton className="m-1" isDisabled isOutlined>

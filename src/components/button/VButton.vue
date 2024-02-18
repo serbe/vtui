@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { twMerge } from 'tailwind-merge';
 import { computed, defineProps } from 'vue';
 import {
 	backgroundColor,
@@ -7,7 +8,6 @@ import {
 	type Colors,
 	type Sizes
 } from '@/utils/variables';
-import { twMerge } from 'tailwind-merge';
 
 interface IButtonSize {
 	fontSize: string;

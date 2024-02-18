@@ -35,10 +35,7 @@
 			"vue/no-unused-vars": "error",
 			"vue/no-v-html": "off",
 			"vue/html-indent": [ "error", "tab" ],
-			"vue/component-name-in-template-casing": ["warning", "kebab-case", {
-					"registeredComponentsOnly": true,
-					"ignores": []
-			 }],
+			"vue/component-name-in-template-casing": 1,
 			"@typescript-eslint/no-explicit-any": "off",
 			"@typescript-eslint/indent": [ "error", "tab" ]
 	}
