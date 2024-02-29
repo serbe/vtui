@@ -57,9 +57,9 @@ const buttonClasses = (): string => {
 	const bSize = buttonSize[props.size];
 
 	return twMerge([props.className,
-	props.isOutlined ? 'bg-white' : backgroundColor[props.color], borderColor[props.color], 'rounded-md', 'border', 'shadow-md',
+		props.isOutlined ? 'bg-white' : backgroundColor[props.color], borderColor[props.color], 'rounded-md', 'border', 'shadow-md',
 		'hover:shadow-lg', 'pb-1.5', 'pt-1', bSize.paddingX, bSize.minWidth, props.isFullwidth ? 'w-full' : '',
-	bSize.fontSize, 'font-bold', props.isOutlined ? textColor[props.color] : 'text-white', props.isUpperCase ? 'uppercase' : '',
+		bSize.fontSize, 'font-bold', props.isOutlined ? textColor[props.color] : 'text-white', props.isUpperCase ? 'uppercase' : '',
 	]);
 };
 
@@ -68,7 +68,13 @@ const buttonClass = computed(() => buttonClasses());
 </script>
 
 <template>
-	<button class="button" :class="[buttonClass]" data-ripple-light="true" :disabled="props.isDisabled" @click="click">
+	<button
+		class="button"
+		:class="[buttonClass]"
+		data-ripple-light="true"
+		:disabled="props.isDisabled"
+		@click="click"
+	>
 		<slot />
 	</button>
 </template>
