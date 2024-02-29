@@ -1,39 +1,79 @@
 <script setup script lang="ts">
 import VButton from './VButton.vue';
-import {
-	ColorValues,
-} from '@/utils/variables';
+import { stringToColor, stringToSize } from '@/utils/utils';
+import { ColorValues, SizeValues } from '@/utils/variables';
 </script>
 
 <template>
 	<Story title="VButtons">
 		<Variant title="Defaults">
-			<VButton className="m-1" is-disabled>
+			<VButton
+				class-name="m-1"
+				is-disabled
+			>
 				Disabled
 			</VButton>
-			<VButton className="m-1" isDisabled isOutlined>
+			<VButton
+				class-name="m-1"
+				is-disabled
+				is-outlined
+			>
 				Disabled O
 			</VButton>
-			<VButton className="m-1" isUpperCase>
+			<VButton
+				class-name="m-1"
+				is-upper-case
+			>
 				UpperCase
 			</VButton>
-			<VButton className="m-1" isOutlined isUpperCase>
+			<VButton
+				class-name="m-1"
+				is-outlined
+				is-upper-case
+			>
 				UpperCase O
 			</VButton>
-			<VButton className="m-1" isFullwidth>
+			<VButton
+				class-name="m-1"
+				is-fullwidth
+			>
 				FullWidth
 			</VButton>
-			<VButton className="m-1" isFullwidth isOutlined>
+			<VButton
+				class-name="m-1"
+				is-fullwidth
+				is-outlined
+			>
 				FullWidth O
 			</VButton>
 		</Variant>
 		<Variant title="Colors">
-			<template v-for="color in ColorValues">
-				<template v-for="size in [undefined, 'small', 'large']">
-					<template v-for="outlined in [false, true]">
-						<VButton className="mx-1" :color="(color as Colors)" :isOutlined="outlined" :size="(size as Sizes)">{{
-							`${color} ${size ?? ""}${outlined ? " O" : ""}` }}</VButton>
-					</template>
+			<template
+				v-for="color in ColorValues"
+				:key="color"
+			>
+				<template
+					v-for="size in SizeValues"
+					:key="size"
+				>
+					<VButton
+						class-name="mx-1"
+						:color="(stringToColor(color))"
+						:is-outlined="true"
+						:size="stringToSize(size)"
+					>
+						{{
+							`${color} ${size ?? ""} O` }}
+					</VButton>
+					<VButton
+						class-name="mx-1"
+						:color="stringToColor(color)"
+						:is-outlined="false"
+						:size="stringToSize(size)"
+					>
+						{{
+							`${color} ${size ?? ""}` }}
+					</VButton>
 				</template>
 			</template>
 		</Variant>
